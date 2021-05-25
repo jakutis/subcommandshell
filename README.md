@@ -1,5 +1,7 @@
 # subcommandshell
 
+Spawn a shell to execute subcommands (of, for example, git) without repeating the main command
+
 ## Installation
 
 1. install [Node.js](https://nodejs.org/)
