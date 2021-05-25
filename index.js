@@ -11,6 +11,11 @@ const config = {
   historyFilePath: process.argv[7],
 }
 
+if (!config.command) {
+  console.log("You need to run `subcommandshell <command> <shellPath> <prefix> <default> <sigintSuffix> <historyFilePath>` (all arguments, except the command, are optional), for example: `subcommandshell git /bin/bash 'git > ' status '^C' ~/.gitsh`")
+  process.exit(1)
+}
+
 const getHistory = () => {
   try {
     return fs.readFileSync(config.historyFilePath).toString().trim().split('\n')

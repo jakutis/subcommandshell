@@ -7,4 +7,4 @@
 
 ## Usage
 
-1. run `subcommandshell <command> <shellPath> <prefix> <default> <sigintSuffix> <historyFilePath>`, for example: `subcommandshell git /bin/bash 'git > ' status '^C' ~/.gitsh`
+1. run `subcommandshell <command> <shellPath> <prefix> <default> <sigintSuffix> <historyFilePath>` (all arguments, except the command, are optional), for example: `subcommandshell git /bin/bash 'git > ' status '^C' ~/.gitsh`
