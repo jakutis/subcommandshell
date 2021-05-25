@@ -1,4 +1,4 @@
-# subcommandshell
+# subcommandshell [![npm version](https://img.shields.io/npm/v/subcommandshell.svg?style=flat)](https://www.npmjs.com/package/subcommandshell)
 
 Spawn a shell to execute subcommands (of, for example, git) without repeating the main command
 
