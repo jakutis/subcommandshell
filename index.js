@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const readline = require('readline')
 const fs = require('fs')
 const child_process = require('child_process')
