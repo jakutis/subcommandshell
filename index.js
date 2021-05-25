@@ -4,16 +4,16 @@ const child_process = require('child_process')
 
 const config = {
   command: process.argv[2],
-  shell: process.argv[3] || '/bin/sh',
+  shellPath: process.argv[3] || '/bin/sh',
   prefix: process.argv[4] || (process.argv[2] + ' > '),
   default: process.argv[5] || '',
   sigintSuffix: process.argv[6] || '^C',
-  history: process.argv[7],
+  historyFilePath: process.argv[7],
 }
 
 const getHistory = () => {
   try {
-    return fs.readFileSync(config.history).toString().trim().split('\n')
+    return fs.readFileSync(config.historyFilePath).toString().trim().split('\n')
   } catch (err) {
     return []
   }
@@ -21,7 +21,7 @@ const getHistory = () => {
 
 const setHistory = history => {
   try {
-    fs.writeFileSync(config.history, history.join('\n') + '\n')
+    fs.writeFileSync(config.historyFilePath, history.join('\n') + '\n')
   } catch (err) {
   }
 }
@@ -29,7 +29,7 @@ const setHistory = history => {
 const interface = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
-  history: getHistory(config.history),
+  history: getHistory(config.historyFilePath),
   removeHistoryDuplicates: true,
   historySize: 1000000
 })
@@ -46,7 +46,7 @@ const ask = () => {
 
     try {
       child_process.execSync(config.command + ' ' + subcommand, {
-        shell: config.shell,
+        shell: config.shellPath,
         stdio: [0, 1, 2]
       })
     } catch (err) {
